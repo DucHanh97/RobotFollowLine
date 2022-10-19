@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\RobotFolowLine.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\RobotFolowLine.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Wed Oct 19 01:39:50 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Wed Oct 19 13:46:01 2022
 <BR><P>
 <H3>Maximum Stack Usage =         48 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -469,15 +469,16 @@ Global Symbols
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HCSR04_Init
 </UL>
 
-<P><STRONG><a name="[5d]"></a>GPIO_Toggle_Pin</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio_driver.o(.text.GPIO_Toggle_Pin))
-<BR><BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IRQ_Callback
+<P><STRONG><a name="[5e]"></a>GPIO_Toggle_Pin</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, gpio_driver.o(.text.GPIO_Toggle_Pin))
+<BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IRQ_Callback
 </UL>
 
-<P><STRONG><a name="[65]"></a>GPIO_Write_Pin</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, gpio_driver.o(.text.GPIO_Write_Pin))
-<BR><BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_Control
+<P><STRONG><a name="[55]"></a>GPIO_Write_Pin</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, gpio_driver.o(.text.GPIO_Write_Pin))
+<BR><BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_Control
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HCSR04_Start
 </UL>
 
-<P><STRONG><a name="[64]"></a>Get_Tick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sysclock.o(.text.Get_Tick))
+<P><STRONG><a name="[65]"></a>Get_Tick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sysclock.o(.text.Get_Tick))
 <BR><BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -506,20 +507,21 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[54]"></a>HCSR04_Start</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, hcsr04.o(.text.HCSR04_Start))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HCSR04_Start
+<P><STRONG><a name="[54]"></a>HCSR04_Start</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, hcsr04.o(.text.HCSR04_Start))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HCSR04_Start
 </UL>
-<BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Delay_us
+<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Delay_us
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Write_Pin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[58]"></a>SysClockConfig</STRONG> (Thumb, 156 bytes, Stack size 8 bytes, sysclock.o(.text.SysClockConfig))
+<P><STRONG><a name="[59]"></a>SysClockConfig</STRONG> (Thumb, 156 bytes, Stack size 8 bytes, sysclock.o(.text.SysClockConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SysClockConfig &rArr; SystemInit &rArr; SetSysClock &rArr; SetSysClockTo72
 </UL>
 <BR>[Calls]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Config
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Config
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -527,48 +529,48 @@ Global Symbols
 <P><STRONG><a name="[9]"></a>SysTick_Handler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, sysclock.o(.text.SysTick_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
-<P><STRONG><a name="[59]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 110 bytes, Stack size 0 bytes, system_stm32f10x.o(.text.SystemCoreClockUpdate))
-<BR><BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysClockConfig
+<P><STRONG><a name="[5a]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 110 bytes, Stack size 0 bytes, system_stm32f10x.o(.text.SystemCoreClockUpdate))
+<BR><BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysClockConfig
 </UL>
 
 <P><STRONG><a name="[35]"></a>SystemInit</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, system_stm32f10x.o(.text.SystemInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SystemInit &rArr; SetSysClock &rArr; SetSysClockTo72
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
+<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
 </UL>
-<BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysClockConfig
+<BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysClockConfig
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(.text)
 </UL>
 <P><STRONG><a name="[23]"></a>TIM1_UP_IRQHandler</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, timer_driver.o(.text.TIM1_UP_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM1_UP_IRQHandler &rArr; TIM_IRQ_Callback
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IRQ_Callback
+<BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IRQ_Callback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
-<P><STRONG><a name="[55]"></a>TIM2_Delay_us</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, hcsr04.o(.text.TIM2_Delay_us))
+<P><STRONG><a name="[56]"></a>TIM2_Delay_us</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, hcsr04.o(.text.TIM2_Delay_us))
 <BR><BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HCSR04_Start
 </UL>
 
 <P><STRONG><a name="[26]"></a>TIM2_IRQHandler</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, timer_driver.o(.text.TIM2_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM2_IRQHandler &rArr; TIM_IRQ_Callback
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IRQ_Callback
+<BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IRQ_Callback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[27]"></a>TIM3_IRQHandler</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, timer_driver.o(.text.TIM3_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM3_IRQHandler &rArr; TIM_IRQ_Callback
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IRQ_Callback
+<BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IRQ_Callback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[28]"></a>TIM4_IRQHandler</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, timer_driver.o(.text.TIM4_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM4_IRQHandler &rArr; TIM_IRQ_Callback
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IRQ_Callback
+<BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IRQ_Callback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
@@ -576,10 +578,10 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HCSR04_Init
 </UL>
 
-<P><STRONG><a name="[5c]"></a>TIM_IRQ_Callback</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, main.o(.text.TIM_IRQ_Callback))
+<P><STRONG><a name="[5d]"></a>TIM_IRQ_Callback</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, main.o(.text.TIM_IRQ_Callback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TIM_IRQ_Callback
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Toggle_Pin
+<BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Toggle_Pin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM4_IRQHandler
 <LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_IRQHandler
@@ -587,16 +589,16 @@ Global Symbols
 <LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM1_UP_IRQHandler
 </UL>
 
-<P><STRONG><a name="[5e]"></a>TIM_IT_Config</STRONG> (Thumb, 200 bytes, Stack size 16 bytes, timer_driver.o(.text.TIM_IT_Config))
+<P><STRONG><a name="[5f]"></a>TIM_IT_Config</STRONG> (Thumb, 200 bytes, Stack size 16 bytes, timer_driver.o(.text.TIM_IT_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM_IT_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
+<BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[62]"></a>TIM_PWM_Config</STRONG> (Thumb, 232 bytes, Stack size 8 bytes, timer_driver.o(.text.TIM_PWM_Config))
+<P><STRONG><a name="[63]"></a>TIM_PWM_Config</STRONG> (Thumb, 232 bytes, Stack size 8 bytes, timer_driver.o(.text.TIM_PWM_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TIM_PWM_Config
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -605,36 +607,36 @@ Global Symbols
 <P><STRONG><a name="[66]"></a>TIM_PWM_SetDuty</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, timer_driver.o(.text.TIM_PWM_SetDuty))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TIM_PWM_SetDuty
 </UL>
-<BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_Control
+<BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_Control
 </UL>
 
 <P><STRONG><a name="[40]"></a>main</STRONG> (Thumb, 156 bytes, Stack size 8 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = main &rArr; HCSR04_Handler &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_Init
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_Control
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_PWM_Config
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IT_Config
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysClockConfig
+<BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_Init
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_Control
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_PWM_Config
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IT_Config
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysClockConfig
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HCSR04_Start
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HCSR04_Init
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HCSR04_Handler
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Tick
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Tick
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Config
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[63]"></a>motor_Control</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, motor.o(.text.motor_Control))
+<P><STRONG><a name="[64]"></a>motor_Control</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, motor.o(.text.motor_Control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = motor_Control &rArr; TIM_PWM_SetDuty
 </UL>
 <BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_PWM_SetDuty
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Write_Pin
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Write_Pin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[61]"></a>motor_Init</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, motor.o(.text.motor_Init))
+<P><STRONG><a name="[62]"></a>motor_Init</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, motor.o(.text.motor_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -690,38 +692,38 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI0_Config
 </UL>
 
-<P><STRONG><a name="[5a]"></a>SysTick_Config</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, sysclock.o(.text.SysTick_Config))
+<P><STRONG><a name="[5b]"></a>SysTick_Config</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, sysclock.o(.text.SysTick_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SysTick_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
+<BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysClockConfig
-</UL>
-
-<P><STRONG><a name="[5b]"></a>__NVIC_SetPriority</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, sysclock.o(.text.__NVIC_SetPriority))
-<BR><BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Config
+<BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysClockConfig
 </UL>
 
-<P><STRONG><a name="[60]"></a>__NVIC_EnableIRQ</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, timer_driver.o(.text.__NVIC_EnableIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IT_Config
+<P><STRONG><a name="[5c]"></a>__NVIC_SetPriority</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, sysclock.o(.text.__NVIC_SetPriority))
+<BR><BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Config
 </UL>
 
-<P><STRONG><a name="[5f]"></a>__NVIC_SetPriority</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, timer_driver.o(.text.__NVIC_SetPriority))
-<BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IT_Config
+<P><STRONG><a name="[61]"></a>__NVIC_EnableIRQ</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, timer_driver.o(.text.__NVIC_EnableIRQ))
+<BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IT_Config
 </UL>
 
-<P><STRONG><a name="[56]"></a>SetSysClock</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_stm32f10x.o(.text.SetSysClock))
+<P><STRONG><a name="[60]"></a>__NVIC_SetPriority</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, timer_driver.o(.text.__NVIC_SetPriority))
+<BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_IT_Config
+</UL>
+
+<P><STRONG><a name="[57]"></a>SetSysClock</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_stm32f10x.o(.text.SetSysClock))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SetSysClock &rArr; SetSysClockTo72
 </UL>
-<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClockTo72
+<BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClockTo72
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[57]"></a>SetSysClockTo72</STRONG> (Thumb, 190 bytes, Stack size 8 bytes, system_stm32f10x.o(.text.SetSysClockTo72))
+<P><STRONG><a name="[58]"></a>SetSysClockTo72</STRONG> (Thumb, 190 bytes, Stack size 8 bytes, system_stm32f10x.o(.text.SetSysClockTo72))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SetSysClockTo72
 </UL>
-<BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
+<BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClock
 </UL>
 <P>
 <H3>

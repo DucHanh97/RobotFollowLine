@@ -27,11 +27,29 @@ Project File Date:  10/19/2022
 <h2>Output:</h2>
 *** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'RobotFollowLine'
-compiling timer_driver.c...
+main.c(6): warning: In file included from...
+./MyLib\motor.h(16): warning: padding struct 'Motor_TypeDef' with 2 bytes to align 'timer' [-Wpadded]
+        TIM_TypeDef             *timer;
+                                 ^
+main.c(8): warning: no previous extern declaration for non-static variable 'distance' [-Wmissing-variable-declarations]
+volatile float distance;
+               ^
+main.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+volatile float distance;
+         ^
+main.c(29): warning: no previous extern declaration for non-static variable 'motor01' [-Wmissing-variable-declarations]
+Motor_TypeDef motor01;
+              ^
+main.c(29): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+Motor_TypeDef motor01;
+^
+3 warnings generated.
+compiling main.c...
+compiling hcsr04.c...
 linking...
-Program Size: Code=3430 RO-data=286 RW-data=4 ZI-data=1668  
+Program Size: Code=3434 RO-data=286 RW-data=4 ZI-data=1668  
 FromELF: creating hex file...
-".\Objects\RobotFolowLine.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\RobotFolowLine.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -59,9 +77,9 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\system_stm32f10x.c
-      Include file:  RTE_Driver\Config\RTE_Device.h
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

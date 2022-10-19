@@ -1,5 +1,4 @@
 #include "hcsr04.h"
-#include "stm32f10x.h"
 #include "timer_driver.h"
 #include "gpio_driver.h"
 
@@ -22,7 +21,7 @@ void TIM2_Delay_us(uint16_t us)
 {
 	TIM2->CNT = 0;
 	TIM2->CR1 |= TIM_CR1_CEN;
-	while(TIM2->CNT <us);
+	while(TIM2->CNT < us);
 	TIM2->CR1 &= ~TIM_CR1_CEN;
 }
 
@@ -68,9 +67,9 @@ void EXTI0_IRQHandler(void)
 
 void HCSR04_Start(void)
 {
-	GPIOA->ODR |= 1 << 1;
+	GPIO_Write_Pin(GPIOA, PIN_1, PIN_SET);	
 	TIM2_Delay_us(20);
-	GPIOA->ODR &= (uint16_t)~(1 << 1);
+	GPIO_Write_Pin(GPIOA, PIN_1, PIN_RESET);
 	
 	hc04_state = WAIT_RISING_STATE;
 }
@@ -85,10 +84,10 @@ void HCSR04_Handler(void)
 	}
 }
 
-void HCSR04_Init(void)
+void HCSR04_Init(HCSR04_TypeDef *hcsr04_x, TIM_TypeDef *TIMx, GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 {
-	TIM_Config(TIM2, 72, MAX_ARR_VALUE);
-	EXTI0_Config();
-	GPIO_Config(GPIOA, PIN_0, INPUT, IN_PP);
-	GPIO_Config(GPIOA, PIN_1, OUT50, O_GP_PP);
+	hcsr04_x->hc04_tim = TIMx;
+	hcsr04_x->hc04_port = GPIOx;
+	hcsr04_x->hc04_pin = GPIO_Pin;
+	hcsr04_x->hc04_state = IDLE_STATE;
 }

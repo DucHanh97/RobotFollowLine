@@ -29,6 +29,7 @@ Section Cross References
     hcsr04.o(.ARM.exidx.text.TIM2_Delay_us) refers to hcsr04.o(.text.TIM2_Delay_us) for [Anonymous Symbol]
     hcsr04.o(.text.EXTI0_IRQHandler) refers to hcsr04.o(.bss.hc04_state) for hc04_state
     hcsr04.o(.ARM.exidx.text.EXTI0_IRQHandler) refers to hcsr04.o(.text.EXTI0_IRQHandler) for [Anonymous Symbol]
+    hcsr04.o(.text.HCSR04_Start) refers to gpio_driver.o(.text.GPIO_Write_Pin) for GPIO_Write_Pin
     hcsr04.o(.text.HCSR04_Start) refers to hcsr04.o(.text.TIM2_Delay_us) for TIM2_Delay_us
     hcsr04.o(.text.HCSR04_Start) refers to hcsr04.o(.bss.hc04_state) for hc04_state
     hcsr04.o(.ARM.exidx.text.HCSR04_Start) refers to hcsr04.o(.text.HCSR04_Start) for [Anonymous Symbol]
@@ -416,46 +417,46 @@ Image Symbol Table
     [Anonymous Symbol]                       0x080003d4   Section        0  hcsr04.o(.text.HCSR04_Handler)
     [Anonymous Symbol]                       0x08000414   Section        0  hcsr04.o(.text.HCSR04_Init)
     [Anonymous Symbol]                       0x0800044c   Section        0  hcsr04.o(.text.HCSR04_Start)
-    SetSysClock                              0x0800047d   Thumb Code     8  system_stm32f10x.o(.text.SetSysClock)
-    [Anonymous Symbol]                       0x0800047c   Section        0  system_stm32f10x.o(.text.SetSysClock)
-    SetSysClockTo72                          0x08000485   Thumb Code   190  system_stm32f10x.o(.text.SetSysClockTo72)
-    [Anonymous Symbol]                       0x08000484   Section        0  system_stm32f10x.o(.text.SetSysClockTo72)
-    [Anonymous Symbol]                       0x08000544   Section        0  sysclock.o(.text.SysClockConfig)
-    SysTick_Config                           0x080005e1   Thumb Code    36  sysclock.o(.text.SysTick_Config)
-    [Anonymous Symbol]                       0x080005e0   Section        0  sysclock.o(.text.SysTick_Config)
-    [Anonymous Symbol]                       0x08000604   Section        0  sysclock.o(.text.SysTick_Handler)
-    [Anonymous Symbol]                       0x08000614   Section        0  system_stm32f10x.o(.text.SystemCoreClockUpdate)
-    [Anonymous Symbol]                       0x08000684   Section        0  system_stm32f10x.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x080006dc   Section        0  timer_driver.o(.text.TIM1_UP_IRQHandler)
-    [Anonymous Symbol]                       0x080006f8   Section        0  hcsr04.o(.text.TIM2_Delay_us)
-    [Anonymous Symbol]                       0x08000724   Section        0  timer_driver.o(.text.TIM2_IRQHandler)
-    [Anonymous Symbol]                       0x08000740   Section        0  timer_driver.o(.text.TIM3_IRQHandler)
-    [Anonymous Symbol]                       0x0800075c   Section        0  timer_driver.o(.text.TIM4_IRQHandler)
-    [Anonymous Symbol]                       0x08000778   Section        0  timer_driver.o(.text.TIM_Config)
-    [Anonymous Symbol]                       0x08000814   Section        0  main.o(.text.TIM_IRQ_Callback)
-    [Anonymous Symbol]                       0x0800084c   Section        0  timer_driver.o(.text.TIM_IT_Config)
-    [Anonymous Symbol]                       0x08000914   Section        0  timer_driver.o(.text.TIM_PWM_Config)
-    [Anonymous Symbol]                       0x080009fc   Section        0  timer_driver.o(.text.TIM_PWM_SetDuty)
-    __NVIC_EnableIRQ                         0x08000a45   Thumb Code    14  hcsr04.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x08000a44   Section        0  hcsr04.o(.text.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x08000a55   Thumb Code    32  timer_driver.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x08000a54   Section        0  timer_driver.o(.text.__NVIC_EnableIRQ)
-    __NVIC_SetPriority                       0x08000a75   Thumb Code    14  hcsr04.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x08000a74   Section        0  hcsr04.o(.text.__NVIC_SetPriority)
-    __NVIC_SetPriority                       0x08000a85   Thumb Code    14  sysclock.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x08000a84   Section        0  sysclock.o(.text.__NVIC_SetPriority)
-    __NVIC_SetPriority                       0x08000a95   Thumb Code    34  timer_driver.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x08000a94   Section        0  timer_driver.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x08000ab8   Section        0  main.o(.text.main)
-    [Anonymous Symbol]                       0x08000b54   Section        0  motor.o(.text.motor_Control)
-    [Anonymous Symbol]                       0x08000bb0   Section        0  motor.o(.text.motor_Init)
-    x$fpl$d2f                                0x08000bc4   Section       98  d2f.o(x$fpl$d2f)
-    x$fpl$dfltu                              0x08000c26   Section       38  dflt_clz.o(x$fpl$dfltu)
-    x$fpl$dmul                               0x08000c4c   Section      340  dmul.o(x$fpl$dmul)
-    x$fpl$dnaninf                            0x08000da0   Section      156  dnaninf.o(x$fpl$dnaninf)
-    x$fpl$dretinf                            0x08000e3c   Section       12  dretinf.o(x$fpl$dretinf)
-    x$fpl$fretinf                            0x08000e48   Section       10  fretinf.o(x$fpl$fretinf)
-    x$fpl$usenofp                            0x08000e52   Section        0  usenofp.o(x$fpl$usenofp)
+    SetSysClock                              0x08000481   Thumb Code     8  system_stm32f10x.o(.text.SetSysClock)
+    [Anonymous Symbol]                       0x08000480   Section        0  system_stm32f10x.o(.text.SetSysClock)
+    SetSysClockTo72                          0x08000489   Thumb Code   190  system_stm32f10x.o(.text.SetSysClockTo72)
+    [Anonymous Symbol]                       0x08000488   Section        0  system_stm32f10x.o(.text.SetSysClockTo72)
+    [Anonymous Symbol]                       0x08000548   Section        0  sysclock.o(.text.SysClockConfig)
+    SysTick_Config                           0x080005e5   Thumb Code    36  sysclock.o(.text.SysTick_Config)
+    [Anonymous Symbol]                       0x080005e4   Section        0  sysclock.o(.text.SysTick_Config)
+    [Anonymous Symbol]                       0x08000608   Section        0  sysclock.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x08000618   Section        0  system_stm32f10x.o(.text.SystemCoreClockUpdate)
+    [Anonymous Symbol]                       0x08000688   Section        0  system_stm32f10x.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x080006e0   Section        0  timer_driver.o(.text.TIM1_UP_IRQHandler)
+    [Anonymous Symbol]                       0x080006fc   Section        0  hcsr04.o(.text.TIM2_Delay_us)
+    [Anonymous Symbol]                       0x08000728   Section        0  timer_driver.o(.text.TIM2_IRQHandler)
+    [Anonymous Symbol]                       0x08000744   Section        0  timer_driver.o(.text.TIM3_IRQHandler)
+    [Anonymous Symbol]                       0x08000760   Section        0  timer_driver.o(.text.TIM4_IRQHandler)
+    [Anonymous Symbol]                       0x0800077c   Section        0  timer_driver.o(.text.TIM_Config)
+    [Anonymous Symbol]                       0x08000818   Section        0  main.o(.text.TIM_IRQ_Callback)
+    [Anonymous Symbol]                       0x08000850   Section        0  timer_driver.o(.text.TIM_IT_Config)
+    [Anonymous Symbol]                       0x08000918   Section        0  timer_driver.o(.text.TIM_PWM_Config)
+    [Anonymous Symbol]                       0x08000a00   Section        0  timer_driver.o(.text.TIM_PWM_SetDuty)
+    __NVIC_EnableIRQ                         0x08000a49   Thumb Code    14  hcsr04.o(.text.__NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x08000a48   Section        0  hcsr04.o(.text.__NVIC_EnableIRQ)
+    __NVIC_EnableIRQ                         0x08000a59   Thumb Code    32  timer_driver.o(.text.__NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x08000a58   Section        0  timer_driver.o(.text.__NVIC_EnableIRQ)
+    __NVIC_SetPriority                       0x08000a79   Thumb Code    14  hcsr04.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x08000a78   Section        0  hcsr04.o(.text.__NVIC_SetPriority)
+    __NVIC_SetPriority                       0x08000a89   Thumb Code    14  sysclock.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x08000a88   Section        0  sysclock.o(.text.__NVIC_SetPriority)
+    __NVIC_SetPriority                       0x08000a99   Thumb Code    34  timer_driver.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x08000a98   Section        0  timer_driver.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x08000abc   Section        0  main.o(.text.main)
+    [Anonymous Symbol]                       0x08000b58   Section        0  motor.o(.text.motor_Control)
+    [Anonymous Symbol]                       0x08000bb4   Section        0  motor.o(.text.motor_Init)
+    x$fpl$d2f                                0x08000bc8   Section       98  d2f.o(x$fpl$d2f)
+    x$fpl$dfltu                              0x08000c2a   Section       38  dflt_clz.o(x$fpl$dfltu)
+    x$fpl$dmul                               0x08000c50   Section      340  dmul.o(x$fpl$dmul)
+    x$fpl$dnaninf                            0x08000da4   Section      156  dnaninf.o(x$fpl$dnaninf)
+    x$fpl$dretinf                            0x08000e40   Section       12  dretinf.o(x$fpl$dretinf)
+    x$fpl$fretinf                            0x08000e4c   Section       10  fretinf.o(x$fpl$fretinf)
+    x$fpl$usenofp                            0x08000e56   Section        0  usenofp.o(x$fpl$usenofp)
     .bss                                     0x20000008   Section       96  libspace.o(.bss)
     hc04_state                               0x20000070   Data           1  hcsr04.o(.bss.hc04_state)
     [Anonymous Symbol]                       0x20000070   Section        0  hcsr04.o(.bss.hc04_state)
@@ -621,37 +622,37 @@ Image Symbol Table
     HCSR04_Complete_Callback                 0x080003c9   Thumb Code    12  main.o(.text.HCSR04_Complete_Callback)
     HCSR04_Handler                           0x080003d5   Thumb Code    64  hcsr04.o(.text.HCSR04_Handler)
     HCSR04_Init                              0x08000415   Thumb Code    54  hcsr04.o(.text.HCSR04_Init)
-    HCSR04_Start                             0x0800044d   Thumb Code    48  hcsr04.o(.text.HCSR04_Start)
-    SysClockConfig                           0x08000545   Thumb Code   156  sysclock.o(.text.SysClockConfig)
-    SysTick_Handler                          0x08000605   Thumb Code    16  sysclock.o(.text.SysTick_Handler)
-    SystemCoreClockUpdate                    0x08000615   Thumb Code   110  system_stm32f10x.o(.text.SystemCoreClockUpdate)
-    SystemInit                               0x08000685   Thumb Code    86  system_stm32f10x.o(.text.SystemInit)
-    TIM1_UP_IRQHandler                       0x080006dd   Thumb Code    26  timer_driver.o(.text.TIM1_UP_IRQHandler)
-    TIM2_Delay_us                            0x080006f9   Thumb Code    44  hcsr04.o(.text.TIM2_Delay_us)
-    TIM2_IRQHandler                          0x08000725   Thumb Code    26  timer_driver.o(.text.TIM2_IRQHandler)
-    TIM3_IRQHandler                          0x08000741   Thumb Code    26  timer_driver.o(.text.TIM3_IRQHandler)
-    TIM4_IRQHandler                          0x0800075d   Thumb Code    26  timer_driver.o(.text.TIM4_IRQHandler)
-    TIM_Config                               0x08000779   Thumb Code   156  timer_driver.o(.text.TIM_Config)
-    TIM_IRQ_Callback                         0x08000815   Thumb Code    56  main.o(.text.TIM_IRQ_Callback)
-    TIM_IT_Config                            0x0800084d   Thumb Code   200  timer_driver.o(.text.TIM_IT_Config)
-    TIM_PWM_Config                           0x08000915   Thumb Code   232  timer_driver.o(.text.TIM_PWM_Config)
-    TIM_PWM_SetDuty                          0x080009fd   Thumb Code    70  timer_driver.o(.text.TIM_PWM_SetDuty)
-    main                                     0x08000ab9   Thumb Code   156  main.o(.text.main)
-    motor_Control                            0x08000b55   Thumb Code    90  motor.o(.text.motor_Control)
-    motor_Init                               0x08000bb1   Thumb Code    20  motor.o(.text.motor_Init)
-    __aeabi_d2f                              0x08000bc5   Thumb Code     0  d2f.o(x$fpl$d2f)
-    _d2f                                     0x08000bc5   Thumb Code    98  d2f.o(x$fpl$d2f)
-    __aeabi_ui2d                             0x08000c27   Thumb Code     0  dflt_clz.o(x$fpl$dfltu)
-    _dfltu                                   0x08000c27   Thumb Code    38  dflt_clz.o(x$fpl$dfltu)
-    __aeabi_dmul                             0x08000c4d   Thumb Code     0  dmul.o(x$fpl$dmul)
-    _dmul                                    0x08000c4d   Thumb Code   332  dmul.o(x$fpl$dmul)
-    __fpl_dnaninf                            0x08000da1   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
-    __fpl_dretinf                            0x08000e3d   Thumb Code    12  dretinf.o(x$fpl$dretinf)
-    __fpl_fretinf                            0x08000e49   Thumb Code    10  fretinf.o(x$fpl$fretinf)
-    AHBPrescTable                            0x08000e52   Data          16  system_stm32f10x.o(.rodata.AHBPrescTable)
-    __I$use$fp                               0x08000e52   Number         0  usenofp.o(x$fpl$usenofp)
-    Region$$Table$$Base                      0x08000e64   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08000e84   Number         0  anon$$obj.o(Region$$Table)
+    HCSR04_Start                             0x0800044d   Thumb Code    50  hcsr04.o(.text.HCSR04_Start)
+    SysClockConfig                           0x08000549   Thumb Code   156  sysclock.o(.text.SysClockConfig)
+    SysTick_Handler                          0x08000609   Thumb Code    16  sysclock.o(.text.SysTick_Handler)
+    SystemCoreClockUpdate                    0x08000619   Thumb Code   110  system_stm32f10x.o(.text.SystemCoreClockUpdate)
+    SystemInit                               0x08000689   Thumb Code    86  system_stm32f10x.o(.text.SystemInit)
+    TIM1_UP_IRQHandler                       0x080006e1   Thumb Code    26  timer_driver.o(.text.TIM1_UP_IRQHandler)
+    TIM2_Delay_us                            0x080006fd   Thumb Code    44  hcsr04.o(.text.TIM2_Delay_us)
+    TIM2_IRQHandler                          0x08000729   Thumb Code    26  timer_driver.o(.text.TIM2_IRQHandler)
+    TIM3_IRQHandler                          0x08000745   Thumb Code    26  timer_driver.o(.text.TIM3_IRQHandler)
+    TIM4_IRQHandler                          0x08000761   Thumb Code    26  timer_driver.o(.text.TIM4_IRQHandler)
+    TIM_Config                               0x0800077d   Thumb Code   156  timer_driver.o(.text.TIM_Config)
+    TIM_IRQ_Callback                         0x08000819   Thumb Code    56  main.o(.text.TIM_IRQ_Callback)
+    TIM_IT_Config                            0x08000851   Thumb Code   200  timer_driver.o(.text.TIM_IT_Config)
+    TIM_PWM_Config                           0x08000919   Thumb Code   232  timer_driver.o(.text.TIM_PWM_Config)
+    TIM_PWM_SetDuty                          0x08000a01   Thumb Code    70  timer_driver.o(.text.TIM_PWM_SetDuty)
+    main                                     0x08000abd   Thumb Code   156  main.o(.text.main)
+    motor_Control                            0x08000b59   Thumb Code    90  motor.o(.text.motor_Control)
+    motor_Init                               0x08000bb5   Thumb Code    20  motor.o(.text.motor_Init)
+    __aeabi_d2f                              0x08000bc9   Thumb Code     0  d2f.o(x$fpl$d2f)
+    _d2f                                     0x08000bc9   Thumb Code    98  d2f.o(x$fpl$d2f)
+    __aeabi_ui2d                             0x08000c2b   Thumb Code     0  dflt_clz.o(x$fpl$dfltu)
+    _dfltu                                   0x08000c2b   Thumb Code    38  dflt_clz.o(x$fpl$dfltu)
+    __aeabi_dmul                             0x08000c51   Thumb Code     0  dmul.o(x$fpl$dmul)
+    _dmul                                    0x08000c51   Thumb Code   332  dmul.o(x$fpl$dmul)
+    __fpl_dnaninf                            0x08000da5   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
+    __fpl_dretinf                            0x08000e41   Thumb Code    12  dretinf.o(x$fpl$dretinf)
+    __fpl_fretinf                            0x08000e4d   Thumb Code    10  fretinf.o(x$fpl$fretinf)
+    AHBPrescTable                            0x08000e56   Data          16  system_stm32f10x.o(.rodata.AHBPrescTable)
+    __I$use$fp                               0x08000e56   Number         0  usenofp.o(x$fpl$usenofp)
+    Region$$Table$$Base                      0x08000e68   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08000e88   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_stm32f10x.o(.data.SystemCoreClock)
     __libspace_start                         0x20000008   Data          96  libspace.o(.bss)
     Tick                                     0x20000068   Data           4  sysclock.o(.bss.Tick)
@@ -669,7 +670,7 @@ Memory Map of the image
 
   Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000e90, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000e84, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000e88, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -742,55 +743,56 @@ Memory Map of the image
     0x080003d4   0x080003d4   0x00000040   Code   RO           32    .text.HCSR04_Handler  hcsr04.o
     0x08000414   0x08000414   0x00000036   Code   RO           34    .text.HCSR04_Init   hcsr04.o
     0x0800044a   0x0800044a   0x00000002   PAD
-    0x0800044c   0x0800044c   0x00000030   Code   RO           30    .text.HCSR04_Start  hcsr04.o
-    0x0800047c   0x0800047c   0x00000008   Code   RO          133    .text.SetSysClock   system_stm32f10x.o
-    0x08000484   0x08000484   0x000000be   Code   RO          137    .text.SetSysClockTo72  system_stm32f10x.o
-    0x08000542   0x08000542   0x00000002   PAD
-    0x08000544   0x08000544   0x0000009c   Code   RO           45    .text.SysClockConfig  sysclock.o
-    0x080005e0   0x080005e0   0x00000024   Code   RO           47    .text.SysTick_Config  sysclock.o
-    0x08000604   0x08000604   0x00000010   Code   RO           49    .text.SysTick_Handler  sysclock.o
-    0x08000614   0x08000614   0x0000006e   Code   RO          135    .text.SystemCoreClockUpdate  system_stm32f10x.o
-    0x08000682   0x08000682   0x00000002   PAD
-    0x08000684   0x08000684   0x00000056   Code   RO          131    .text.SystemInit    system_stm32f10x.o
-    0x080006da   0x080006da   0x00000002   PAD
-    0x080006dc   0x080006dc   0x0000001a   Code   RO           90    .text.TIM1_UP_IRQHandler  timer_driver.o
-    0x080006f6   0x080006f6   0x00000002   PAD
-    0x080006f8   0x080006f8   0x0000002c   Code   RO           26    .text.TIM2_Delay_us  hcsr04.o
-    0x08000724   0x08000724   0x0000001a   Code   RO           92    .text.TIM2_IRQHandler  timer_driver.o
-    0x0800073e   0x0800073e   0x00000002   PAD
-    0x08000740   0x08000740   0x0000001a   Code   RO           94    .text.TIM3_IRQHandler  timer_driver.o
-    0x0800075a   0x0800075a   0x00000002   PAD
-    0x0800075c   0x0800075c   0x0000001a   Code   RO           96    .text.TIM4_IRQHandler  timer_driver.o
-    0x08000776   0x08000776   0x00000002   PAD
-    0x08000778   0x08000778   0x0000009c   Code   RO           82    .text.TIM_Config    timer_driver.o
-    0x08000814   0x08000814   0x00000038   Code   RO            4    .text.TIM_IRQ_Callback  main.o
-    0x0800084c   0x0800084c   0x000000c8   Code   RO           84    .text.TIM_IT_Config  timer_driver.o
-    0x08000914   0x08000914   0x000000e8   Code   RO           98    .text.TIM_PWM_Config  timer_driver.o
-    0x080009fc   0x080009fc   0x00000046   Code   RO          100    .text.TIM_PWM_SetDuty  timer_driver.o
-    0x08000a42   0x08000a42   0x00000002   PAD
-    0x08000a44   0x08000a44   0x0000000e   Code   RO           24    .text.__NVIC_EnableIRQ  hcsr04.o
-    0x08000a52   0x08000a52   0x00000002   PAD
-    0x08000a54   0x08000a54   0x00000020   Code   RO           88    .text.__NVIC_EnableIRQ  timer_driver.o
-    0x08000a74   0x08000a74   0x0000000e   Code   RO           22    .text.__NVIC_SetPriority  hcsr04.o
-    0x08000a82   0x08000a82   0x00000002   PAD
-    0x08000a84   0x08000a84   0x0000000e   Code   RO           55    .text.__NVIC_SetPriority  sysclock.o
-    0x08000a92   0x08000a92   0x00000002   PAD
-    0x08000a94   0x08000a94   0x00000022   Code   RO           86    .text.__NVIC_SetPriority  timer_driver.o
-    0x08000ab6   0x08000ab6   0x00000002   PAD
-    0x08000ab8   0x08000ab8   0x0000009c   Code   RO            6    .text.main          main.o
-    0x08000b54   0x08000b54   0x0000005a   Code   RO          110    .text.motor_Control  motor.o
-    0x08000bae   0x08000bae   0x00000002   PAD
-    0x08000bb0   0x08000bb0   0x00000014   Code   RO          112    .text.motor_Init    motor.o
-    0x08000bc4   0x08000bc4   0x00000062   Code   RO          154    x$fpl$d2f           fz_ws.l(d2f.o)
-    0x08000c26   0x08000c26   0x00000026   Code   RO          156    x$fpl$dfltu         fz_ws.l(dflt_clz.o)
-    0x08000c4c   0x08000c4c   0x00000154   Code   RO          162    x$fpl$dmul          fz_ws.l(dmul.o)
-    0x08000da0   0x08000da0   0x0000009c   Code   RO          165    x$fpl$dnaninf       fz_ws.l(dnaninf.o)
-    0x08000e3c   0x08000e3c   0x0000000c   Code   RO          167    x$fpl$dretinf       fz_ws.l(dretinf.o)
-    0x08000e48   0x08000e48   0x0000000a   Code   RO          169    x$fpl$fretinf       fz_ws.l(fretinf.o)
-    0x08000e52   0x08000e52   0x00000000   Code   RO          171    x$fpl$usenofp       fz_ws.l(usenofp.o)
-    0x08000e52   0x08000e52   0x00000010   Data   RO          140    .rodata.AHBPrescTable  system_stm32f10x.o
-    0x08000e62   0x08000e62   0x00000002   PAD
-    0x08000e64   0x08000e64   0x00000020   Data   RO          331    Region$$Table       anon$$obj.o
+    0x0800044c   0x0800044c   0x00000032   Code   RO           30    .text.HCSR04_Start  hcsr04.o
+    0x0800047e   0x0800047e   0x00000002   PAD
+    0x08000480   0x08000480   0x00000008   Code   RO          133    .text.SetSysClock   system_stm32f10x.o
+    0x08000488   0x08000488   0x000000be   Code   RO          137    .text.SetSysClockTo72  system_stm32f10x.o
+    0x08000546   0x08000546   0x00000002   PAD
+    0x08000548   0x08000548   0x0000009c   Code   RO           45    .text.SysClockConfig  sysclock.o
+    0x080005e4   0x080005e4   0x00000024   Code   RO           47    .text.SysTick_Config  sysclock.o
+    0x08000608   0x08000608   0x00000010   Code   RO           49    .text.SysTick_Handler  sysclock.o
+    0x08000618   0x08000618   0x0000006e   Code   RO          135    .text.SystemCoreClockUpdate  system_stm32f10x.o
+    0x08000686   0x08000686   0x00000002   PAD
+    0x08000688   0x08000688   0x00000056   Code   RO          131    .text.SystemInit    system_stm32f10x.o
+    0x080006de   0x080006de   0x00000002   PAD
+    0x080006e0   0x080006e0   0x0000001a   Code   RO           90    .text.TIM1_UP_IRQHandler  timer_driver.o
+    0x080006fa   0x080006fa   0x00000002   PAD
+    0x080006fc   0x080006fc   0x0000002c   Code   RO           26    .text.TIM2_Delay_us  hcsr04.o
+    0x08000728   0x08000728   0x0000001a   Code   RO           92    .text.TIM2_IRQHandler  timer_driver.o
+    0x08000742   0x08000742   0x00000002   PAD
+    0x08000744   0x08000744   0x0000001a   Code   RO           94    .text.TIM3_IRQHandler  timer_driver.o
+    0x0800075e   0x0800075e   0x00000002   PAD
+    0x08000760   0x08000760   0x0000001a   Code   RO           96    .text.TIM4_IRQHandler  timer_driver.o
+    0x0800077a   0x0800077a   0x00000002   PAD
+    0x0800077c   0x0800077c   0x0000009c   Code   RO           82    .text.TIM_Config    timer_driver.o
+    0x08000818   0x08000818   0x00000038   Code   RO            4    .text.TIM_IRQ_Callback  main.o
+    0x08000850   0x08000850   0x000000c8   Code   RO           84    .text.TIM_IT_Config  timer_driver.o
+    0x08000918   0x08000918   0x000000e8   Code   RO           98    .text.TIM_PWM_Config  timer_driver.o
+    0x08000a00   0x08000a00   0x00000046   Code   RO          100    .text.TIM_PWM_SetDuty  timer_driver.o
+    0x08000a46   0x08000a46   0x00000002   PAD
+    0x08000a48   0x08000a48   0x0000000e   Code   RO           24    .text.__NVIC_EnableIRQ  hcsr04.o
+    0x08000a56   0x08000a56   0x00000002   PAD
+    0x08000a58   0x08000a58   0x00000020   Code   RO           88    .text.__NVIC_EnableIRQ  timer_driver.o
+    0x08000a78   0x08000a78   0x0000000e   Code   RO           22    .text.__NVIC_SetPriority  hcsr04.o
+    0x08000a86   0x08000a86   0x00000002   PAD
+    0x08000a88   0x08000a88   0x0000000e   Code   RO           55    .text.__NVIC_SetPriority  sysclock.o
+    0x08000a96   0x08000a96   0x00000002   PAD
+    0x08000a98   0x08000a98   0x00000022   Code   RO           86    .text.__NVIC_SetPriority  timer_driver.o
+    0x08000aba   0x08000aba   0x00000002   PAD
+    0x08000abc   0x08000abc   0x0000009c   Code   RO            6    .text.main          main.o
+    0x08000b58   0x08000b58   0x0000005a   Code   RO          110    .text.motor_Control  motor.o
+    0x08000bb2   0x08000bb2   0x00000002   PAD
+    0x08000bb4   0x08000bb4   0x00000014   Code   RO          112    .text.motor_Init    motor.o
+    0x08000bc8   0x08000bc8   0x00000062   Code   RO          154    x$fpl$d2f           fz_ws.l(d2f.o)
+    0x08000c2a   0x08000c2a   0x00000026   Code   RO          156    x$fpl$dfltu         fz_ws.l(dflt_clz.o)
+    0x08000c50   0x08000c50   0x00000154   Code   RO          162    x$fpl$dmul          fz_ws.l(dmul.o)
+    0x08000da4   0x08000da4   0x0000009c   Code   RO          165    x$fpl$dnaninf       fz_ws.l(dnaninf.o)
+    0x08000e40   0x08000e40   0x0000000c   Code   RO          167    x$fpl$dretinf       fz_ws.l(dretinf.o)
+    0x08000e4c   0x08000e4c   0x0000000a   Code   RO          169    x$fpl$fretinf       fz_ws.l(fretinf.o)
+    0x08000e56   0x08000e56   0x00000000   Code   RO          171    x$fpl$usenofp       fz_ws.l(usenofp.o)
+    0x08000e56   0x08000e56   0x00000010   Data   RO          140    .rodata.AHBPrescTable  system_stm32f10x.o
+    0x08000e66   0x08000e66   0x00000002   PAD
+    0x08000e68   0x08000e68   0x00000020   Data   RO          331    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08000e88, Size: 0x00000688, Max: 0x00005000, ABSOLUTE)
@@ -818,7 +820,7 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
        170          0          0          0          0       2109   gpio_driver.o
-       442          0          0          0          1       5533   hcsr04.o
+       444          0          0          0          1       5535   hcsr04.o
        224          0          0          0         24       2600   main.o
        110          0          0          0          0       2608   motor.o
         64         26        236          0       1536        840   startup_stm32f10x_md.o
@@ -827,9 +829,9 @@ Image component sizes
        828          8          0          0          0       6153   timer_driver.o
 
     ----------------------------------------------------------------------
-      2496         34        286          4       1572      26957   Object Totals
+      2500         34        286          4       1572      26959   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        30          0          2          0          7          0   (incl. Padding)
+        32          0          2          0          7          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -884,15 +886,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      3430         70        286          4       1668      27517   Grand Totals
-      3430         70        286          4       1668      27517   ELF Image Totals
-      3430         70        286          4          0          0   ROM Totals
+      3434         70        286          4       1668      27519   Grand Totals
+      3434         70        286          4       1668      27519   ELF Image Totals
+      3434         70        286          4          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 3716 (   3.63kB)
+    Total RO  Size (Code + RO Data)                 3720 (   3.63kB)
     Total RW  Size (RW Data + ZI Data)              1672 (   1.63kB)
-    Total ROM Size (Code + RO Data + RW Data)       3720 (   3.63kB)
+    Total ROM Size (Code + RO Data + RW Data)       3724 (   3.64kB)
 
 ==============================================================================
 
