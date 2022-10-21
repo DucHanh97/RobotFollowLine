@@ -20,7 +20,7 @@ typedef struct
 }Motor_TypeDef;
 
 void motor_Control(Motor_TypeDef *motor, MotorState state_motor, uint8_t speed);
-void motor_Init(Motor_TypeDef *Motor_x, GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin,
+void motor_Init(Motor_TypeDef *motor, GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin,
 								TIM_TypeDef *TIMx, uint16_t tim_channel);
 
 #endif
