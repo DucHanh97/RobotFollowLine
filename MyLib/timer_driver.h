@@ -39,7 +39,4 @@ void TIM_IRQ_Callback(TIM_TypeDef *TIMx);
 void TIM_PWM_Config(TIM_TypeDef *TIMx, uint16_t Channel, uint16_t psc, uint16_t arr);
 void TIM_PWM_SetDuty(TIM_TypeDef *TIMx, uint16_t Channel, uint16_t duty);
 
-//void TIM3_PWM_Init(uint16_t psc, uint16_t arr);
-//void TIM3_PWM_SetDuty(uint8_t Channel, uint8_t duty);
-
 #endif

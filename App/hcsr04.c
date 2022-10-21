@@ -11,7 +11,7 @@ void TIM_Delay_us(HCSR04_TypeDef *hcsr04_x, uint16_t us)
 
 void EXTI_HCSR04_Callback(HCSR04_TypeDef *hcsr04_x)
 {
-	
+
 	{
 		switch(hcsr04_x->hc04_state)
 		{
@@ -43,7 +43,7 @@ void EXTI_HCSR04_Callback(HCSR04_TypeDef *hcsr04_x)
 			case COMPLETE_STATE:
 				break;
 		}
-		
+
 	}
 }
 
@@ -52,7 +52,7 @@ void HCSR04_Start(HCSR04_TypeDef *hcsr04_x)
 	GPIO_Write_Pin(hcsr04_x->hc04_port, hcsr04_x->hc04_trig_pin, PIN_SET);	
 	TIM_Delay_us(hcsr04_x, 20);
 	GPIO_Write_Pin(hcsr04_x->hc04_port, hcsr04_x->hc04_trig_pin, PIN_RESET);
-	
+
 	hcsr04_x->hc04_state = WAIT_RISING_STATE;
 }
 

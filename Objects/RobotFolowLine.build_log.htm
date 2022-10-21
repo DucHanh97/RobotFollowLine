@@ -22,12 +22,51 @@ Dialog DLL:      TCM.DLL V1.46.0.0
  
 <h2>Project:</h2>
 H:\Master\3_sem\Programming_microcontroler\RobotFollowLine\RobotFolowLine.uvprojx
-Project File Date:  10/20/2022
+Project File Date:  10/21/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'RobotFollowLine'
-".\Objects\RobotFolowLine.axf" - 0 Error(s), 0 Warning(s).
+main.c(17): warning: In file included from...
+./App\hcsr04.h(28): warning: padding struct 'HCSR04_TypeDef' with 3 bytes to align 'distan' [-Wpadded]
+        float                                   distan;
+                                                ^
+main.c(63): warning: implicit conversion increases floating-point precision: 'volatile float' to 'double' [-Wdouble-promotion]
+        lcd_printf(&lcd, "%.2f", distance);
+        ~~~~~~~~~~               ^~~~~~~~
+main.c(18): warning: In file included from...
+./App\lcd_i2c.h(36): warning: padding size of 'LCD_TypeDef' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+main.c(19): warning: In file included from...
+./App\motor.h(16): warning: padding struct 'Motor_TypeDef' with 2 bytes to align 'timer' [-Wpadded]
+        TIM_TypeDef             *timer;
+                                 ^
+main.c(27): warning: no previous extern declaration for non-static variable 'digital_sensor_value' [-Wmissing-variable-declarations]
+uint8_t digital_sensor_value;
+        ^
+main.c(27): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint8_t digital_sensor_value;
+^
+main.c(56): warning: no previous extern declaration for non-static variable 'distance' [-Wmissing-variable-declarations]
+volatile float distance;
+               ^
+main.c(56): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+volatile float distance;
+         ^
+main.c(18): warning: In file included from...
+./App\lcd_i2c.h(43): warning: unused function 'lcd_send_cmd' [-Wunused-function]
+static void lcd_send_cmd(LCD_TypeDef *LCDx, uint8_t cmd);
+            ^
+./App\lcd_i2c.h(44): warning: unused function 'lcd_send_data' [-Wunused-function]
+static void lcd_send_data(LCD_TypeDef *LCDx, uint8_t data);
+            ^
+8 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=11572 RO-data=836 RW-data=8 ZI-data=1712  
+FromELF: creating hex file...
+".\Objects\RobotFolowLine.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -56,9 +95,9 @@ Package Vendor: Keil
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
       Include file:  RTE_Driver\Config\RTE_Device.h
-      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\system_stm32f10x.c
-Build Time Elapsed:  00:00:00
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
