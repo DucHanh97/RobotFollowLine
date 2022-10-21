@@ -45,7 +45,7 @@ void GPIO_Write_Pin(GPIO_TypeDef *GPIOx, uint16_t PIN, uint8_t PIN_State)
 uint8_t GPIO_Read_Pin(GPIO_TypeDef *GPIOx, uint16_t PIN)
 {
 	uint8_t PIN_State;
-	PIN_State = (uint8_t)GPIOx->IDR & (1 << PIN);
+	PIN_State = (uint8_t)(GPIOx->IDR >> PIN) & 1;
 	return PIN_State;
 }
 

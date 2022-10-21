@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\MyLib</IncludePath>
+              <IncludePath>.\MyLib;.\App</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -381,7 +381,7 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>App</GroupName>
+          <GroupName>User</GroupName>
           <Files>
             <File>
               <FileName>main.c</FileName>
@@ -394,11 +394,6 @@
           <GroupName>MyLib</GroupName>
           <Files>
             <File>
-              <FileName>hcsr04.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\MyLib\hcsr04.c</FilePath>
-            </File>
-            <File>
               <FileName>SysClock.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\MyLib\SysClock.c</FilePath>
@@ -409,14 +404,34 @@
               <FilePath>.\MyLib\gpio_driver.c</FilePath>
             </File>
             <File>
+              <FileName>i2c_driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MyLib\i2c_driver.c</FilePath>
+            </File>
+            <File>
               <FileName>timer_driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\MyLib\timer_driver.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>App</GroupName>
+          <Files>
+            <File>
+              <FileName>lcd_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\App\lcd_i2c.c</FilePath>
+            </File>
             <File>
               <FileName>motor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MyLib\motor.c</FilePath>
+              <FilePath>.\App\motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>hcsr04.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\App\hcsr04.c</FilePath>
             </File>
           </Files>
         </Group>
