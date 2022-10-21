@@ -108,7 +108,6 @@ void TIM_PWM_Config(TIM_TypeDef *TIMx, uint16_t Channel, uint16_t psc, uint16_t 
 	if(TIMx == TIM1)
 	{
 		RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
-		TIM1->BDTR |= TIM_BDTR_MOE;
 	}
 	else if(TIMx == TIM2)
 	{
@@ -130,22 +129,22 @@ void TIM_PWM_Config(TIM_TypeDef *TIMx, uint16_t Channel, uint16_t psc, uint16_t 
 	if(Channel == CH1)
 	{
 		TIMx->CCER |= TIM_CCER_CC1E;
-		TIMx->CCMR1 |= TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2;																//PWM CH1 Mode 1
+		TIMx->CCMR1 |= 6 << 4;																														//PWM CH1 Mode 1
 	}
 	else if(Channel == CH2)
 	{
 		TIMx->CCER |= TIM_CCER_CC2E;
-		TIMx->CCMR1 |= TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2;																//PWM CH2 Mode 1
+		TIMx->CCMR1 |= 6 << 12;																														//PWM CH2 Mode 1
 	}
 	else if(Channel == CH3)
 	{
 		TIMx->CCER |= TIM_CCER_CC3E;
-		TIMx->CCMR2 |= TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_2;																//PWM CH3 Mode 1
+		TIMx->CCMR2 |= 6 << 4;																														//PWM CH3 Mode 1
 	}
 	else if(Channel == CH4)
 	{
 		TIMx->CCER |= TIM_CCER_CC4E;
-		TIMx->CCMR2 |= TIM_CCMR2_OC4M_1 | TIM_CCMR2_OC4M_2;																//PWM CH4 Mode 1
+		TIMx->CCMR2 |= 6 << 12;																														//PWM CH4 Mode 1
 	}
 	TIMx->CR1 |= TIM_CR1_CEN;
 	while(!(TIMx->SR & TIM_SR_UIF));
@@ -155,19 +154,19 @@ void TIM_PWM_SetDuty(TIM_TypeDef *TIMx, uint16_t Channel, uint16_t duty)
 {
 	uint16_t arr, ccr;
 	arr = TIMx->ARR;
-	ccr = duty * arr / 100;
+	ccr = (arr + 1) / 100 * duty;
 	switch(Channel)
 	{
-		case CH1:
+		case 1:
 			TIMx->CCR1 = ccr;
 			break;
-		case CH2:
+		case 2:
 			TIMx->CCR2 = ccr;
 			break;
-		case CH3:
+		case 3:
 			TIMx->CCR3 = ccr;
 			break;
-		case CH4:
+		case 4:
 			TIMx->CCR4 = ccr;
 			break;
 	}
