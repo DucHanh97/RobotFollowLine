@@ -24,8 +24,14 @@ void EXTI0_IRQHandler(void);
 static LCD_TypeDef lcd;
 static Motor_TypeDef motor01;
 static Motor_TypeDef motor02;
-uint8_t digital_sensor_value;
 
+typedef enum
+{
+	CAR_STOP,
+	CAR_RUN
+}CAR_State;
+
+static CAR_State car_state = CAR_STOP;
 /*---------------------- HCSR04 ------------------------*/
 static HCSR04_TypeDef hcsr04;
 
@@ -53,18 +59,24 @@ void EXTI0_IRQHandler(void)
 	EXTI->PR |= (1 << 0);
 }
 
-volatile float distance;
+//volatile float distance;
 
 void HCSR04_Complete_Callback(HCSR04_TypeDef *hcsr04_x)
 {
-	distance = hcsr04_x->distan;
-	lcd_clear_display(&lcd);
-	Delay_ms(1);
-	lcd_printf(&lcd, "%.2f", distance);
-	if(distance < 20)
+//	distance = hcsr04_x->distan;
+	if(&hcsr04 == hcsr04_x)
 	{
-		motor_Control(&motor01, MOTOR_STOP, 0);
-		motor_Control(&motor02, MOTOR_STOP, 0);
+		lcd_clear_display(&lcd);
+		Delay_ms(1);
+		lcd_printf(&lcd, "%.2f", (double)hcsr04.distan);
+		if(hcsr04.distan < 20)
+		{
+			car_state = CAR_STOP;
+		}
+		else
+		{
+			car_state = CAR_RUN;
+		}
 	}
 }
 /*------------------^^^^^ HCSR04 ^^^^^--------------------*/
@@ -120,12 +132,9 @@ int main(void)
 	TIM_IT_Config(TIM3, 72, 999, 1);
 	/*--------------------------------------------*/
 	
-	GPIO_Config(GPIOA, PIN_2, INPUT, IN_PP);
-	
-	GPIO_Write_Pin(GPIOB, PIN_15, PIN_RESET);
 	
 	uint32_t time_now = 0;
-	static uint8_t speed = 30;
+	
 	
 	while(1)
 	{
@@ -133,14 +142,17 @@ int main(void)
 		{
 			HCSR04_Start(&hcsr04);
 			time_now = Get_Tick();
-			motor_Control(&motor01, MOTOR_CW, speed);
-			motor_Control(&motor02, MOTOR_CW, speed);
-			speed++;
-			if(speed >= 80)
-				speed = 30;
 		}
 		HCSR04_Handler(&hcsr04);
-		
-		digital_sensor_value = GPIO_Read_Pin(GPIOA, PIN_2);
+		if(car_state == CAR_RUN)
+		{
+			motor_Control(&motor01, MOTOR_CW, 25);
+			motor_Control(&motor02, MOTOR_CW, 25);
+		}
+		if(car_state == CAR_STOP)
+		{
+			motor_Control(&motor01, MOTOR_STOP, 25);
+			motor_Control(&motor02, MOTOR_STOP, 25);
+		}
 	}
 }
