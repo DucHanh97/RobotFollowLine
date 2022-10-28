@@ -70,16 +70,19 @@ void HCSR04_Complete_Callback(HCSR04_TypeDef *hcsr04_x)
 //	distance = hcsr04_x->distan;
 	if(&hcsr04 == hcsr04_x)
 	{
-		lcd_clear_display(&lcd);
-		Delay_ms(1);
-		lcd_printf(&lcd, "%.2f", (double)hcsr04.distan);
 		if(hcsr04.distan < 20)
 		{
 			car_state = CAR_STOP;
+			lcd_clear_display(&lcd);
+			Delay_ms(1);
+			lcd_printf(&lcd, "There's an obstacle");
 		}
 		else
 		{
 			car_state = CAR_RUN;
+			lcd_clear_display(&lcd);
+			Delay_ms(1);
+			lcd_printf(&lcd, "Following line");
 		}
 	}
 }
@@ -154,6 +157,9 @@ int main(void)
 			if(error == 5)
 			{
 				car_state = CAR_STOP;
+				lcd_clear_display(&lcd);
+				Delay_ms(1);
+				lcd_printf(&lcd, "AT THE STATION");
 			}
 			else if(error == -5)
 			{

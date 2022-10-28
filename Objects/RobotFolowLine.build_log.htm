@@ -27,12 +27,6 @@ Project File Date:  10/28/2022
 <h2>Output:</h2>
 *** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'RobotFollowLine'
-App/follow_line.c(4): warning: In file included from...
-./App/motor.h(16): warning: padding struct 'Motor_TypeDef' with 2 bytes to align 'timer' [-Wpadded]
-        TIM_TypeDef             *timer;
-                                 ^
-1 warning generated.
-compiling follow_line.c...
 main.c(30): warning: no previous extern declaration for non-static variable 'miss_way' [-Wmissing-variable-declarations]
 uint8_t miss_way = 0;
         ^
@@ -73,9 +67,9 @@ static void lcd_send_data(LCD_TypeDef *LCDx, uint8_t data);
 8 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=12088 RO-data=836 RW-data=4 ZI-data=1724  
+Program Size: Code=12068 RO-data=872 RW-data=4 ZI-data=1724  
 FromELF: creating hex file...
-".\Objects\RobotFolowLine.axf" - 0 Error(s), 9 Warning(s).
+".\Objects\RobotFolowLine.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -103,9 +97,9 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
 Build Time Elapsed:  00:00:01
 </pre>
 </body>
