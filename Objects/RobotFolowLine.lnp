@@ -7,6 +7,7 @@
 ".\objects\lcd_i2c.o"
 ".\objects\motor.o"
 ".\objects\hcsr04.o"
+".\objects\follow_line.o"
 ".\objects\startup_stm32f10x_md.o"
 ".\objects\system_stm32f10x.o"
 --strict --scatter ".\Objects\RobotFolowLine.sct"

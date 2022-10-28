@@ -433,6 +433,11 @@
               <FileType>1</FileType>
               <FilePath>.\App\hcsr04.c</FilePath>
             </File>
+            <File>
+              <FileName>follow_line.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\App\follow_line.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

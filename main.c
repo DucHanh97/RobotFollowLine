@@ -17,13 +17,17 @@
 #include "hcsr04.h"
 #include "lcd_i2c.h"
 #include "motor.h"
+#include "follow_line.h"
+
 void EXTI0_Config(void);
 void EXTI0_IRQHandler(void);
 
 /*----------- GLOBAL ARGUMENTS -----------*/
 static LCD_TypeDef lcd;
-static Motor_TypeDef motor01;
-static Motor_TypeDef motor02;
+Motor_TypeDef left_motor;
+Motor_TypeDef right_motor;
+static int8_t error;
+uint8_t	miss_way = 0;
 
 typedef enum
 {
@@ -117,10 +121,10 @@ int main(void)
 	/*--------------------------------------------*/	
 	
 	/*---------------- Motor Init ----------------*/
-	motor_Init(&motor01, GPIOB, PIN_14, TIM1, CH1);
-	motor_Init(&motor02, GPIOB, PIN_15, TIM1, CH2);
-	TIM_PWM_Config(motor01.timer, motor01.Tim_Channel, 72, 1000);
-	TIM_PWM_Config(motor02.timer, motor02.Tim_Channel, 72, 1000);
+	motor_Init(&right_motor, GPIOB, PIN_14, TIM1, CH1);
+	motor_Init(&left_motor, GPIOB, PIN_15, TIM1, CH2);
+	TIM_PWM_Config(right_motor.timer, right_motor.Tim_Channel, 72, 1000);
+	TIM_PWM_Config(left_motor.timer, left_motor.Tim_Channel, 72, 1000);
 	GPIO_Config(GPIOA, PIN_8, OUT50, O_AF_PP);
 	GPIO_Config(GPIOB, PIN_14, OUT50, O_GP_PP);
 	GPIO_Config(GPIOA, PIN_9, OUT50, O_AF_PP);
@@ -146,13 +150,38 @@ int main(void)
 		HCSR04_Handler(&hcsr04);
 		if(car_state == CAR_RUN)
 		{
-			motor_Control(&motor01, MOTOR_CW, 25);
-			motor_Control(&motor02, MOTOR_CW, 25);
+			error = read_sensor_error();
+			if(error == 5)
+			{
+				car_state = CAR_STOP;
+			}
+			else if(error == -5)
+			{
+				if(miss_way == 0)
+				{
+					motor_Control(&left_motor, MOTOR_STOP, 0);
+					motor_Control(&right_motor, MOTOR_STOP, 0);
+				}
+				if(miss_way == 1)
+				{
+					motor_Control(&left_motor, MOTOR_CW, BASE_SPEED);
+					motor_Control(&right_motor, MOTOR_CW, 0);
+				}
+				if(miss_way == 2)
+				{
+					motor_Control(&left_motor, MOTOR_CW, 0);
+					motor_Control(&right_motor, MOTOR_CW, BASE_SPEED);
+				}
+			}
+			else
+			{
+			car_following_line_handle();
+			}
 		}
 		if(car_state == CAR_STOP)
 		{
-			motor_Control(&motor01, MOTOR_STOP, 25);
-			motor_Control(&motor02, MOTOR_STOP, 25);
+			motor_Control(&right_motor, MOTOR_STOP, 0);
+			motor_Control(&left_motor, MOTOR_STOP, 0);
 		}
 	}
 }
