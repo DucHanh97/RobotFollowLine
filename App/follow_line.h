@@ -7,7 +7,7 @@
 #define Kp					75
 #define Ki					0
 #define Kd					0
-#define BASE_SPEED	25
+#define BASE_SPEED	30
 /*-----------------------------------------*/
 
 /*------------ Prototype Functions ------------*/

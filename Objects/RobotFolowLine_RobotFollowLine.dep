@@ -1,6 +1,6 @@
 Dependencies for Project 'RobotFolowLine', Target 'RobotFollowLine': (DO NOT MODIFY !)
 CompilerVersion: 6140000::V6.14::ARMCLANG
-F (.\main.c)(0x635BD1F3)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./MyLib -I ./App-I./RTE/Device/STM32F103C8-I./RTE/_RobotFollowLine-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/main.o -MD)
+F (.\main.c)(0x635C3150)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./MyLib -I ./App-I./RTE/Device/STM32F103C8-I./RTE/_RobotFollowLine-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/main.o -MD)
 I (C:\Users\nguye\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61ADBFAE)
 I (RTE\_RobotFollowLine\RTE_Components.h)(0x634DC07A)
 I (C:\Users\nguye\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F1772)
@@ -18,7 +18,7 @@ I (MyLib\i2c_driver.h)(0x6352D797)
 I (App\hcsr04.h)(0x6352DB3F)
 I (App\lcd_i2c.h)(0x6352D797)
 I (App\motor.h)(0x6352DBE7)
-I (App\follow_line.h)(0x635AF866)
+I (App\follow_line.h)(0x635C3112)
 F (.\MyLib\SysClock.c)(0x634F0C76)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./MyLib -I ./App-I./RTE/Device/STM32F103C8-I./RTE/_RobotFollowLine-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/sysclock.o -MD)
 I (MyLib\SysClock.h)(0x63245C3C)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5ED65234)
@@ -113,7 +113,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5E0D0968)
 I (C:\Users\nguye\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61ADBFAE)
 I (MyLib\gpio_driver.h)(0x634EACC0)
 F (.\App\follow_line.c)(0x635B9D53)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./MyLib -I ./App-I./RTE/Device/STM32F103C8-I./RTE/_RobotFollowLine-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/follow_line.o -MD)
-I (App\follow_line.h)(0x635AF866)
+I (App\follow_line.h)(0x635C3112)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5ED65234)
 I (MyLib\gpio_driver.h)(0x634EACC0)
 I (C:\Users\nguye\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x61ADBFAE)

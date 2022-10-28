@@ -27,16 +27,22 @@ Project File Date:  10/28/2022
 <h2>Output:</h2>
 *** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'RobotFollowLine'
-main.c(30): warning: no previous extern declaration for non-static variable 'miss_way' [-Wmissing-variable-declarations]
+main.c(32): warning: no previous extern declaration for non-static variable 'miss_way' [-Wmissing-variable-declarations]
 uint8_t miss_way = 0;
         ^
-main.c(30): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+main.c(32): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 uint8_t miss_way = 0;
 ^
 main.c(17): warning: In file included from...
 ./App\hcsr04.h(28): warning: padding struct 'HCSR04_TypeDef' with 3 bytes to align 'distan' [-Wpadded]
         float                                   distan;
                                                 ^
+main.c(82): warning: no previous extern declaration for non-static variable 'flag' [-Wmissing-variable-declarations]
+uint8_t flag = 0;
+        ^
+main.c(82): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint8_t flag = 0;
+^
 main.c(18): warning: In file included from...
 ./App\lcd_i2c.h(36): warning: padding size of 'LCD_TypeDef' with 3 bytes to alignment boundary [-Wpadded]
 typedef struct
@@ -45,16 +51,16 @@ main.c(19): warning: In file included from...
 ./App\motor.h(16): warning: padding struct 'Motor_TypeDef' with 2 bytes to align 'timer' [-Wpadded]
         TIM_TypeDef             *timer;
                                  ^
-main.c(27): warning: no previous extern declaration for non-static variable 'left_motor' [-Wmissing-variable-declarations]
+main.c(29): warning: no previous extern declaration for non-static variable 'left_motor' [-Wmissing-variable-declarations]
 Motor_TypeDef left_motor;
               ^
-main.c(27): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+main.c(29): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 Motor_TypeDef left_motor;
 ^
-main.c(28): warning: no previous extern declaration for non-static variable 'right_motor' [-Wmissing-variable-declarations]
+main.c(30): warning: no previous extern declaration for non-static variable 'right_motor' [-Wmissing-variable-declarations]
 Motor_TypeDef right_motor;
               ^
-main.c(28): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+main.c(30): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 Motor_TypeDef right_motor;
 ^
 main.c(18): warning: In file included from...
@@ -64,12 +70,12 @@ static void lcd_send_cmd(LCD_TypeDef *LCDx, uint8_t cmd);
 ./App\lcd_i2c.h(44): warning: unused function 'lcd_send_data' [-Wunused-function]
 static void lcd_send_data(LCD_TypeDef *LCDx, uint8_t data);
             ^
-8 warnings generated.
+9 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=12068 RO-data=872 RW-data=4 ZI-data=1724  
+Program Size: Code=12324 RO-data=872 RW-data=4 ZI-data=1724  
 FromELF: creating hex file...
-".\Objects\RobotFolowLine.axf" - 0 Error(s), 8 Warning(s).
+".\Objects\RobotFolowLine.axf" - 0 Error(s), 9 Warning(s).
 
 <h2>Software Packages used:</h2>
 

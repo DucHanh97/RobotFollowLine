@@ -20,7 +20,9 @@
 #include "follow_line.h"
 
 void EXTI0_Config(void);
+void EXTI1_Config(void);
 void EXTI0_IRQHandler(void);
+void EXTI1_IRQHandler(void);
 
 /*----------- GLOBAL ARGUMENTS -----------*/
 static LCD_TypeDef lcd;
@@ -47,10 +49,25 @@ void EXTI0_Config(void)
 	AFIO->EXTICR[0] &= (uint16_t)~AFIO_EXTICR1_EXTI0;		//Clear EXTI0 bits
 	AFIO->EXTICR[0] |= AFIO_EXTICR1_EXTI0_PA;						//Set EXTI0 - PA0
 	EXTI->IMR |= 1;																			//Disable the Mask on EXTI0
-	EXTI->RTSR |= 1;																		//Enable Rising Edge Trigger for PA1
-	EXTI->FTSR |= 1;																		//Enable Falling Edge Trigger for PA1
+	EXTI->RTSR |= 1;																		//Enable Rising Edge Trigger for PA0
+	EXTI->FTSR |= 1;																		//Enable Falling Edge Trigger for PA0
 	NVIC_SetPriority(EXTI0_IRQn, 1);										//Set Priority
 	NVIC_EnableIRQ(EXTI0_IRQn);													//Enable Interrupt
+	__enable_irq();
+}
+
+void EXTI1_Config(void)
+{
+	//PA0 - EXTI0
+	__disable_irq();
+	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
+	AFIO->EXTICR[0] &= (uint16_t)~AFIO_EXTICR1_EXTI1;		//Clear EXTI1 bits
+	AFIO->EXTICR[0] |= AFIO_EXTICR1_EXTI1_PB;						//Set EXTI0 - PA0
+	EXTI->IMR |= 1<<1;																	//Disable the Mask on EXTI0
+//	EXTI->RTSR |= 1<<1;																	//Enable Rising Edge Trigger for PB1
+	EXTI->FTSR |= 1<<1;																	//Enable Falling Edge Trigger for PB1
+	NVIC_SetPriority(EXTI1_IRQn, 2);										//Set Priority
+	NVIC_EnableIRQ(EXTI1_IRQn);													//Enable Interrupt
 	__enable_irq();
 }
 
@@ -62,8 +79,15 @@ void EXTI0_IRQHandler(void)
 	}
 	EXTI->PR |= (1 << 0);
 }
-
-//volatile float distance;
+uint8_t flag = 0;
+void EXTI1_IRQHandler(void)
+{
+	if(EXTI->PR & (1 << 1))
+	{
+		flag = 1;
+	}
+	EXTI->PR |= (1 << 1);
+}
 
 void HCSR04_Complete_Callback(HCSR04_TypeDef *hcsr04_x)
 {
@@ -107,6 +131,9 @@ void TIM_IRQ_Callback(TIM_TypeDef *TIMx)
 int main(void)
 {
 	SysClockConfig();
+	
+	EXTI1_Config();
+	GPIO_Config(GPIOB, PIN_1, INPUT, IN_PP);
 	
 	/*---------------- HCSR04 Init ---------------*/
 	HCSR04_Init(&hcsr04, TIM2, GPIOA, PIN_1, PIN_0);
@@ -188,6 +215,14 @@ int main(void)
 		{
 			motor_Control(&right_motor, MOTOR_STOP, 0);
 			motor_Control(&left_motor, MOTOR_STOP, 0);
+		}
+		if(flag == 1)
+		{
+			flag = 0;
+			motor_Control(&left_motor, MOTOR_CW, BASE_SPEED);
+			motor_Control(&right_motor, MOTOR_CW, BASE_SPEED);
+			Delay_ms(100);
+			car_state = CAR_RUN;
 		}
 	}
 }
