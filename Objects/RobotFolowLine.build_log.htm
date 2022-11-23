@@ -37,10 +37,10 @@ main.c(17): warning: In file included from...
 ./App\hcsr04.h(28): warning: padding struct 'HCSR04_TypeDef' with 3 bytes to align 'distan' [-Wpadded]
         float                                   distan;
                                                 ^
-main.c(82): warning: no previous extern declaration for non-static variable 'flag' [-Wmissing-variable-declarations]
+main.c(84): warning: no previous extern declaration for non-static variable 'flag' [-Wmissing-variable-declarations]
 uint8_t flag = 0;
         ^
-main.c(82): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+main.c(84): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 uint8_t flag = 0;
 ^
 main.c(18): warning: In file included from...
@@ -73,7 +73,7 @@ static void lcd_send_data(LCD_TypeDef *LCDx, uint8_t data);
 9 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=12324 RO-data=872 RW-data=4 ZI-data=1724  
+Program Size: Code=12844 RO-data=872 RW-data=4 ZI-data=1724  
 FromELF: creating hex file...
 ".\Objects\RobotFolowLine.axf" - 0 Error(s), 9 Warning(s).
 
@@ -103,9 +103,9 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
-      Source file:   Device\Source\system_stm32f10x.c
       Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\system_stm32f10x.c
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

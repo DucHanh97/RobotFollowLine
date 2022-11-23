@@ -46,12 +46,12 @@ int8_t read_sensor_error(void)
 	else if((sensor[0] == 0) & (sensor[1] == 0) & (sensor[2] == 0) & (sensor[3] == 0) & (sensor[4] == 1))
 	{
 		error = 4;
-		miss_way = 1;
+		miss_way = 2;
 	}
 	else if((sensor[0] == 0) & (sensor[1] == 0) & (sensor[2] == 0) & (sensor[3] == 1) & (sensor[4] == 1))
 	{
 		error = 3;
-		miss_way = 1;
+		miss_way = 2;
 	}
 	else if((sensor[0] == 0) & (sensor[1] == 0) & (sensor[2] == 0) & (sensor[3] == 1) & (sensor[4] == 0))
 	{
@@ -60,14 +60,17 @@ int8_t read_sensor_error(void)
 	else if((sensor[0] == 0) & (sensor[1] == 0) & (sensor[2] == 1) & (sensor[3] == 1) & (sensor[4] == 0))
 	{
 		error = 1;
+		miss_way = 1;
 	}
 	else if((sensor[0] == 0) & (sensor[1] == 0) & (sensor[2] == 1) & (sensor[3] == 0) & (sensor[4] == 0))
 	{
 		error = 0;
+		miss_way = 1;
 	}
 	else if((sensor[0] == 0) & (sensor[1] == 1) & (sensor[2] == 1) & (sensor[3] == 0) & (sensor[4] == 0))
 	{
 		error = -1;
+		miss_way = 1;
 	}
 	else if((sensor[0] == 0) & (sensor[1] == 1) & (sensor[2] == 0) & (sensor[3] == 0) & (sensor[4] == 0))
 	{
@@ -76,16 +79,24 @@ int8_t read_sensor_error(void)
 	else if((sensor[0] == 1) & (sensor[1] == 1) & (sensor[2] == 0) & (sensor[3] == 0) & (sensor[4] == 0))
 	{
 		error = -3;
-		miss_way = 2;
+		miss_way = 3;
 	}
 	else if((sensor[0] == 1) & (sensor[1] == 0) & (sensor[2] == 0) & (sensor[3] == 0) & (sensor[4] == 0))
 	{
 		error = -4;
-		miss_way = 2;
+		miss_way = 3;
 	}
 	else if((sensor[0] == 0) & (sensor[1] == 0) & (sensor[2] == 0) & (sensor[3] == 0) & (sensor[4] == 0))
 	{
 		error = -5;
+	}
+	else if((sensor[0] == 1) & (sensor[1] == 1) & (sensor[2] == 1) & (sensor[3] == 0) & (sensor[4] == 0))
+	{
+		miss_way = 3;
+	}
+	else if((sensor[0] == 0) & (sensor[1] == 0) & (sensor[2] == 1) & (sensor[3] == 1) & (sensor[4] == 1))
+	{
+		miss_way = 2;
 	}
 	
 	return error;

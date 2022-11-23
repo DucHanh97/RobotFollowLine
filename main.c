@@ -34,7 +34,9 @@ uint8_t	miss_way = 0;
 typedef enum
 {
 	CAR_STOP,
-	CAR_RUN
+	CAR_FOLLOW_LINE,
+	CAR_SEARCH_LINE,
+	CAR_LOST_LINE
 }CAR_State;
 
 static CAR_State car_state = CAR_STOP;
@@ -94,20 +96,23 @@ void HCSR04_Complete_Callback(HCSR04_TypeDef *hcsr04_x)
 //	distance = hcsr04_x->distan;
 	if(&hcsr04 == hcsr04_x)
 	{
-		if(hcsr04.distan < 20)
-		{
-			car_state = CAR_STOP;
-			lcd_clear_display(&lcd);
-			Delay_ms(1);
-			lcd_printf(&lcd, "There's an obstacle");
-		}
-		else
-		{
-			car_state = CAR_RUN;
-			lcd_clear_display(&lcd);
-			Delay_ms(1);
-			lcd_printf(&lcd, "Following line");
-		}
+//		if(car_state != CAR_LOST_LINE)
+//		{
+			if(hcsr04.distan < 20)
+			{
+				car_state = CAR_STOP;
+				lcd_clear_display(&lcd);
+				Delay_ms(1);
+				lcd_printf(&lcd, "There's an obstacle");
+			}
+			else
+			{
+				car_state = CAR_FOLLOW_LINE;
+				lcd_clear_display(&lcd);
+				Delay_ms(1);
+				lcd_printf(&lcd, "Following line");
+			}
+//		}
 	}
 }
 /*------------------^^^^^ HCSR04 ^^^^^--------------------*/
@@ -168,27 +173,58 @@ int main(void)
 	
 	
 	uint32_t time_now = 0;
-	
+	uint16_t search_count_1 = 0;
+	uint16_t search_count_2 = 0;
+	uint16_t search_count_3 = 0;
 	
 	while(1)
 	{
-		if((Get_Tick() - time_now) > 200)
+		error = read_sensor_error();
+		if(car_state == CAR_LOST_LINE)
 		{
-			HCSR04_Start(&hcsr04);
-			time_now = Get_Tick();
+			motor_Control(&right_motor, MOTOR_STOP, 0);
+			motor_Control(&left_motor, MOTOR_STOP, 0);
+			lcd_set_cursor(&lcd, 0, 0);
+			lcd_printf(&lcd, "   Robot lost   ");
+			lcd_set_cursor(&lcd, 1, 0);
+			lcd_printf(&lcd, "    the line    ");
+			if(error != -5)
+				car_state = CAR_FOLLOW_LINE;
 		}
-		HCSR04_Handler(&hcsr04);
-		if(car_state == CAR_RUN)
+		else
 		{
-			error = read_sensor_error();
-			if(error == 5)
+			if((Get_Tick() - time_now) > 200)
 			{
-				car_state = CAR_STOP;
-				lcd_clear_display(&lcd);
-				Delay_ms(1);
-				lcd_printf(&lcd, "AT THE STATION");
+				HCSR04_Start(&hcsr04);
+				time_now = Get_Tick();
 			}
-			else if(error == -5)
+			HCSR04_Handler(&hcsr04);
+			
+			if(car_state == CAR_FOLLOW_LINE)
+			{
+				if(error == 5)
+				{
+					car_state = CAR_STOP;
+					lcd_clear_display(&lcd);
+					Delay_ms(1);
+					lcd_printf(&lcd, "AT THE STATION");
+				}
+				else if(error == -5)
+				{
+					car_state = CAR_SEARCH_LINE;
+				}
+				else
+				{
+				car_following_line_handle();
+				}
+			}
+			if(car_state == CAR_STOP)
+			{
+				motor_Control(&right_motor, MOTOR_STOP, 0);
+				motor_Control(&left_motor, MOTOR_STOP, 0);
+			}
+
+			if(car_state == CAR_SEARCH_LINE)
 			{
 				if(miss_way == 0)
 				{
@@ -198,31 +234,61 @@ int main(void)
 				if(miss_way == 1)
 				{
 					motor_Control(&left_motor, MOTOR_CW, BASE_SPEED);
-					motor_Control(&right_motor, MOTOR_CW, 0);
+					motor_Control(&right_motor, MOTOR_CW, BASE_SPEED);
+					search_count_1++;
+					Delay_ms(5);
+					if(error != -5)
+					{
+						car_state = CAR_FOLLOW_LINE;
+					}
+					if(search_count_1 == 150)
+					{
+						search_count_1 = 0;
+						car_state = CAR_LOST_LINE;
+					}
 				}
 				if(miss_way == 2)
 				{
+					motor_Control(&left_motor, MOTOR_CW, BASE_SPEED);
+					motor_Control(&right_motor, MOTOR_CW, 0);
+					search_count_2++;
+					Delay_ms(5);
+					if(error != -5)
+					{
+						car_state = CAR_FOLLOW_LINE;
+					}
+					if(search_count_2 == 1000)
+					{
+						search_count_2 = 0;
+						car_state = CAR_LOST_LINE;
+					}
+				}
+				if(miss_way == 3)
+				{
 					motor_Control(&left_motor, MOTOR_CW, 0);
 					motor_Control(&right_motor, MOTOR_CW, BASE_SPEED);
+					search_count_3++;
+					Delay_ms(5);
+					if(error != -5)
+					{
+						car_state = CAR_FOLLOW_LINE;
+					}
+					if(search_count_3 == 1000)
+					{
+						search_count_3 = 0;
+						car_state = CAR_LOST_LINE;
+					}
 				}
 			}
-			else
+			
+			if(flag == 1)
 			{
-			car_following_line_handle();
+				flag = 0;
+				motor_Control(&left_motor, MOTOR_CW, BASE_SPEED);
+				motor_Control(&right_motor, MOTOR_CW, BASE_SPEED);
+				Delay_ms(100);
+				car_state = CAR_FOLLOW_LINE;
 			}
-		}
-		if(car_state == CAR_STOP)
-		{
-			motor_Control(&right_motor, MOTOR_STOP, 0);
-			motor_Control(&left_motor, MOTOR_STOP, 0);
-		}
-		if(flag == 1)
-		{
-			flag = 0;
-			motor_Control(&left_motor, MOTOR_CW, BASE_SPEED);
-			motor_Control(&right_motor, MOTOR_CW, BASE_SPEED);
-			Delay_ms(100);
-			car_state = CAR_RUN;
 		}
 	}
 }
